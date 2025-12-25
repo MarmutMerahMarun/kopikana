@@ -1,114 +1,464 @@
-<!doctype html>
-<html lang="id">
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Kopi Kana — Kopi Karang Taruna </title>
-	<meta name="description" content="Kopi Kana — biji kopi pilihan, dipanggang lokal. Pesan sekarang untuk rasa kopi yang kaya dan autentik.">
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-	<header class="site-header">
-		<div class="container header-inner">
-			<div class="brand">
-				<div class="logo-container">
-					<img src="image/logo_kopi_kana-removebg-preview.png" alt="Kopi Kana Logo" class="brand-logo" height="70px">
-				</div>
-			</div>
-			<nav class="nav">
-				<a href="#produk">Produk</a>
-				<a href="#tentang">Tentang</a>
-				<a href="#kontak">Kontak</a>
-			</nav>
-		</div>
-	</header>
+:root {
+  --bg: #fefefe;
+  --bg-secondary: #fffaf5;
+  --accent: #8b4513;
+  --accent-light: #d2691e;
+  --accent-dark: #5d2a0c;
+  --text: #2c2c2c;
+  --text-muted: #6b6b6b;
+  --shadow: rgba(0, 0, 0, 0.1);
+  --shadow-hover: rgba(0, 0, 0, 0.15);
+  --container: 1200px;
+  --radius: 12px;
+  --transition: all 0.3s ease;
+}
 
-	<main>
-		<section class="hero" id="home">
-			<div class="container hero-inner">
-				<div class="hero-text">
-					<h2>Rasa yang Menghangatkan Hari, otentik cetar membahana</h2>
-					<p>Biji ditanam dan dipilih, dipanggang dengan hati-hati — hadirkan secangkir kenyamanan tiap hari.</p>
-					<a class="btn primary" href="#produk">Lihat Produk</a>
-					<a class="btn ghost" href="#kontak">Pesan Sekarang</a>
-				</div>
-				<div class="hero-image">
-					<img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=9f4a5b5a6f7b" alt="cangkir kopi Kopi Kana">
-				</div>
-			</div>
-		</section>
+* {
+  box-sizing: border-box;
+}
 
-		<section class="features container">
-			<div class="feature">
-				<h3>Bijian Lokal selalu baru</h3>
-				<p>Kami bekerja langsung dengan petani untuk memastikan kualitas dan keberlanjutan.</p>
-			</div>
-			<div class="feature">
-				<h3>Proses Artisanal</h3>
-				<p>Panggang kecil untuk menjaga karakter rasa yang tajam dan seimbang.</p>
-			</div>
-			<div class="feature">
-				<h3>Pengiriman Cepat</h3>
-				<p>Packing rapih dan dikirim cepat ke pintu rumah Anda.</p>
-			</div>
-		</section>
+body {
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  margin: 0;
+  background: linear-gradient(135deg, var(--bg) 0%, var(--bg-secondary) 100%);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
 
-		<section id="produk" class="produk container">
-			<h2> Pilihan Produk</h2>
-			<div class="products-grid">
-				<article class="product">
-					<img src="image/fotokopirobusta.jpg" alt="Kopi Robusta">
-					<h4>Kopi Robusta - 250g</h4>
-					<p class="price">Rp45.000</p>
-					<a class="btn" href="#kontak">Pesan via WA</a>
-				</article>
+.container {
+  max-width: var(--container);
+  margin:  auto;
+  padding: 2rem;
+}
 
-				<article class="product">
-					<img src="image/fotokopiarabica.jpg" alt="Kopi Arabika">
-					<h4>Kopi Arabika - 250g</h4>
-					<p class="price">Rp65.000</p>
-					<a class="btn" href="#kontak">Pesan via WA</a>
-				</article>
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
+  border-radius: 50%;
+  background: #fffaf5;
+  box-shadow: 0 4px 10px var(--shadow);
+}
 
-				<article class="product">
-					<img src="image/fotokopiblend.jpg" alt="Kopi Spesial">
-					<h4>Blend Spesial - 200g</h4>
-					<p class="price">Rp85.000</p>
-					<a class="btn" href="#kontak">Pesan via WA</a>
-				</article>
-			</div>
-		</section>
+img.brand-logo {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  margin-left: 10px;
+}
 
-		<section id="tentang" class="about container">
-			<h2>Tentang Kopi Kana</h2>
-			<p>Kopi Kana lahir dari kecintaan pada kopi nusantara. Kami percaya kopi terbaik lahir dari hubungan yang baik antara petani, pengolah, dan penikmat. Setiap paket diracik untuk menghadirkan pengalaman minum kopi yang konsisten dan penuh karakter.</p>
-		</section>
+.site-header {
+  background: linear-gradient(135deg, rgba(139, 69, 19, 0.95) 0%, rgba(93, 42, 12, 0.95) 100%);
+  color: #fff;
+  box-shadow: 0 4px 20px var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
 
-		<section class="subscribe container">
-			<h3>Dapatkan Promo &amp; Info Rilis</h3>
-			<form id="subscribeForm">
-				<input type="email" id="email" name="email" placeholder="Email Anda" required>
-				<button class="btn primary" type="submit">Daftar</button>
-			</form>
-			<p class="muted">Kami tidak akan membagikan email Anda.</p>
-		</section>
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
 
-		<section id="kontak" class="contact container">
-			<h2>Kontak & Pemesanan</h2>
-			<p>Pesan cepat via WhatsApp:</p>
-			<a class="btn" href="https://wa.me/6285812887656?text=Halo%20Kopi%20Kana%2C%20saya%20ingin%20memesan" target="_blank" rel="noopener">Chat WA</a>
-			<p class="muted">Atau email kami di: halo@kopikana.co (contoh)</p>
-		</section>
-	</main>
+.brand {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  margin: 0;
+  font-size: 1.8rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+}
 
-	<footer class="site-footer">
-		<div class="container">
-			<p>&copy; 2025 Kopi Kana — Semua hak cipta dilindungi.</p>
-		</div>
-	</footer>
+.brand-logo {
+  height: 70px;
+  margin-right: 0.5rem;
+}
 
-	<script src="js/script.js"></script>
-</body>
-</html>
+.nav a {
+  color: #fff;
+  margin-left: 2rem;
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+  position: relative;
+}
 
+.nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #fff;
+  transition: width 0.3s ease;
+}
+
+.nav a:hover::after {
+  width: 100%;
+}
+
+.hero {
+  padding: 4rem 0;
+  position: relative;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 70%, rgba(139, 69, 19, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-text h2 {
+  font-size: 3rem;
+  margin: 0 0 1rem;
+  color: var(--accent-dark);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.hero-text p {
+  margin: 0 0 2rem;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+.hero-image img {
+  width: 100%;
+  border-radius: var(--radius);
+  box-shadow: 0 20px 40px var(--shadow);
+  transition: var(--transition);
+}
+
+.hero-image img:hover {
+  transform: scale(1.02);
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  border-radius: var(--radius);
+  text-decoration: none;
+  background: #fff;
+  color: var(--accent-dark);
+  border: 2px solid var(--accent);
+  font-weight: 600;
+  font-size: 1rem;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+.btn.primary {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+  color: #fff;
+  border: none;
+  box-shadow: 0 8px 25px rgba(139, 69, 19, 0.3);
+}
+
+.btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(139, 69, 19, 0.4);
+}
+
+.btn.ghost {
+  background: transparent;
+  color: var(--accent-light);
+  border: 2px solid var(--accent-light);
+}
+
+.btn.ghost:hover {
+  transform: translateY(-2px);
+  background: var(--accent-light);
+  color: #fffaf5;
+}
+
+.features {
+  display: flex;
+  gap: 2rem;
+  padding: 3rem 0;
+}
+
+.feature {
+  flex: 1;
+  background: #fff;
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: 0 10px 30px var(--shadow);
+  transition: var(--transition);
+  text-align: center;
+}
+
+.feature:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px var(--shadow-hover);
+}
+
+.feature h3 {
+  margin: 0 0 1rem;
+  color: var(--accent-dark);
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.feature p {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.produk{
+  padding-top: 7rem;
+}
+
+.produk h2,
+.about h2 {
+  margin-top: 0;
+  font-size: 2.5rem;
+  color: var(--accent-dark);
+  text-align: center;
+  font-weight: 700;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.product {
+  background: #fff;
+  padding: 2rem;
+  border-radius: var(--radius);
+  text-align: center;
+  box-shadow: 0 10px 30px var(--shadow);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.product::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
+}
+
+.product:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px var(--shadow-hover);
+}
+
+.product img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: calc(var(--radius) - 2px);
+  margin-bottom: 1rem;
+}
+
+.product h4 {
+  margin: 0 0 0.5rem;
+  font-size: 1.2rem;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.price {
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin: 0 0 1rem;
+}
+
+.about {
+  padding: 3rem 0;
+  padding-top: 7rem;
+  text-align: center;
+}
+
+.about p {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+.subscribe {
+  padding: 3rem 0;
+  text-align: center;
+  background: linear-gradient(135deg, rgba(139, 69, 19, 0.05) 0%, rgba(210, 105, 30, 0.05) 100%);
+  border-radius: var(--radius);
+  /* margin: 2rem 0; */
+}
+
+.subscribe h3 {
+  margin: 0 0 1rem;
+  color: var(--accent-dark);
+  font-size: 1.5rem;
+}
+
+.subscribe form {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.subscribe input[type="email"] {
+  flex: 1;
+  padding: 0.8rem 1rem;
+  border-radius: var(--radius);
+  border: 2px solid #e0e0e0;
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.subscribe input[type="email"]:focus {
+  border-color: var(--accent);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(139, 69, 19, 0.1);
+}
+
+.subscribe button {
+  padding: 0.8rem 1.5rem;
+  border-radius: var(--radius);
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.subscribe button:hover {
+  background: var(--accent-light);
+  transform: translateY(-2px);
+}
+
+.muted {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.contact {
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.contact h2 {
+  margin: 0 0 1rem;
+  color: var(--accent-dark);
+}
+
+.contact p {
+  margin: 0 0 1rem;
+  color: var(--text-muted);
+}
+
+.contact a {
+  margin-top: 1rem;
+}
+
+.site-footer {
+  padding: 2rem 0;
+  background: var(--bg-secondary);
+  margin-top: 3rem;
+  text-align: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.site-footer p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 900px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .hero-text h2 {
+    font-size: 2.5rem;
+  }
+
+  .features {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .header-inner {
+    padding: 1rem 0;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .hero-text h2 {
+    font-size: 2rem;
+  }
+
+  .subscribe form {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
